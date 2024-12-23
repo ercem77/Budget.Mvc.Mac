@@ -1,0 +1,31 @@
+﻿@model BudgetViewModel
+
+<table class="table">
+    <tbody>
+
+        @foreach (var category in Model.Categories.Categories)
+        {
+            <tr class="list-row">
+                <td class="d-none">
+                    @Html.DisplayFor(modelItem => category.Id)
+                </td>
+                <td class="transaction-name">
+                    @Html.DisplayFor(modelItem => category.Name)
+                </td>
+                <td class="buttons-cell">
+                    <button type="button" class="btn btn-danger" onclick="openDeleteCategoryModal(@category.Id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 5h4a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5v-6zM14 3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1H.5a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1H14zm-1 1V3H3v1h10z" />
+                        </svg>
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="openUpdateCategoryModal(@category.Id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                            <path d="M13.498.795l.149-.149a1.207 1.207 0 0 1 1.707 0l.15.15a1.207 1.207 0 0 1 0 1.707l-.15.15-1.707-1.707zM12.854 1.561L3.181 11.854a.5.5 0 0 0-.133.252l-.896 4.482a.5.5 0 0 0 .633.633l4.482-.896a.5.5 0 0 0 .252-.133l9.672-9.673L12.854 1.56z" />
+                        </svg>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 
+
